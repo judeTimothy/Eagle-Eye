@@ -1,0 +1,877 @@
+[gd_scene load_steps=21 format=3 uid="uid://dew84hfxj7vqs"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_8plq1"]
+[ext_resource type="StyleBox" uid="uid://drwp4j22qjxtx" path="res://resources/login_theme.tres" id="2_8cdis"]
+[ext_resource type="Texture2D" uid="uid://bd8r31erisks8" path="res://assets/menu-bg.png" id="2_10iup"]
+[ext_resource type="FontFile" uid="uid://c1tect0yp2ipg" path="res://fonts/FUTURA75BOLD.TTF" id="2_cm50b"]
+[ext_resource type="FontFile" uid="uid://dfgquxtt5xcmd" path="res://fonts/FUTURA65MEDIUM.TTF" id="2_k6vmf"]
+[ext_resource type="Texture2D" uid="uid://pdwfyfp25rqd" path="res://assets/logo_temp.png" id="3_2ve28"]
+[ext_resource type="Texture2D" uid="uid://d3mgin84fgitm" path="res://assets/grabber.png" id="3_4q6mp"]
+[ext_resource type="StyleBox" uid="uid://dumnekd7wwi8g" path="res://resources/login_select_theme.tres" id="3_egwt5"]
+[ext_resource type="StyleBox" uid="uid://cxflbk41reth6" path="res://Templates/grabber_highlight.tres" id="3_s7kgh"]
+[ext_resource type="StyleBox" uid="uid://ox201meuqwrt" path="res://resources/sign_up_theme.tres" id="4_4t1u1"]
+[ext_resource type="StyleBox" uid="uid://cvffqibd7sh0f" path="res://resources/sign_up_select_theme.tres" id="5_6w0vo"]
+[ext_resource type="StyleBox" uid="uid://bgvec05mfvkx" path="res://Templates/grabbed.tres" id="5_yvs5h"]
+[ext_resource type="StyleBox" uid="uid://bh27oulte1od6" path="res://resources/quiz_line_edit_theme.tres" id="9_1epvn"]
+[ext_resource type="FontFile" uid="uid://ccn4y78kk8aay" path="res://fonts/FUTURA55REGULAR.TTF" id="10_3oxnl"]
+[ext_resource type="StyleBox" uid="uid://qsttrpijccy4" path="res://resources/panel_popup.tres" id="10_iu0y5"]
+[ext_resource type="Theme" uid="uid://dv32bw6xd3vpa" path="res://resources/optional_theme.tres" id="11_6gdrj"]
+[ext_resource type="StyleBox" uid="uid://bejl74gxkq6fo" path="res://resources/disabled_main.tres" id="11_wdkeb"]
+[ext_resource type="Theme" uid="uid://bj8uhoow67kql" path="res://resources/scroll_theme.tres" id="12_vo021"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ds13"]
+texture = ExtResource("3_4q6mp")
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="Theme" id="Theme_qeisr"]
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_1ds13")
+VScrollBar/styles/grabber_highlight = ExtResource("3_s7kgh")
+VScrollBar/styles/grabber_pressed = ExtResource("5_yvs5h")
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8plq1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(540, 1200)
+texture = ExtResource("2_10iup")
+
+[node name="Main" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Main"]
+custom_minimum_size = Vector2(1080, 1400)
+layout_mode = 2
+theme = SubResource("Theme_qeisr")
+
+[node name="QuizContainer" type="VBoxContainer" parent="Main/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="NotAvailable" type="Label" parent="Main/ScrollContainer/QuizContainer"]
+custom_minimum_size = Vector2(1080, 300)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.262745, 0.152941, 0.14902, 1)
+theme_override_fonts/font = ExtResource("2_k6vmf")
+theme_override_font_sizes/font_size = 100
+text = "There are currently no quizzes available."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Save" type="Button" parent="Main/VBoxContainer"]
+custom_minimum_size = Vector2(650, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme_override_fonts/font = ExtResource("2_cm50b")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = ExtResource("3_egwt5")
+theme_override_styles/disabled = ExtResource("11_wdkeb")
+theme_override_styles/hover = ExtResource("3_egwt5")
+theme_override_styles/pressed = ExtResource("3_egwt5")
+theme_override_styles/normal = ExtResource("2_8cdis")
+text = "Create Quiz
+"
+
+[node name="Load" type="Button" parent="Main/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme_override_fonts/font = ExtResource("2_k6vmf")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = ExtResource("5_6w0vo")
+theme_override_styles/hover = ExtResource("5_6w0vo")
+theme_override_styles/normal = ExtResource("4_4t1u1")
+text = "Reload
+"
+
+[node name="Logout" type="Button" parent="Main/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme_override_fonts/font = ExtResource("2_k6vmf")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = ExtResource("5_6w0vo")
+theme_override_styles/hover = ExtResource("5_6w0vo")
+theme_override_styles/normal = ExtResource("4_4t1u1")
+text = "Logout
+"
+
+[node name="Logo" type="Sprite2D" parent="Main"]
+position = Vector2(540, 193)
+texture = ExtResource("3_2ve28")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Panel" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(800, 1000)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -469.5
+offset_top = -1114.0
+offset_right = 469.5
+offset_bottom = 1114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("10_iu0y5")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+custom_minimum_size = Vector2(800, 2080)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -4.0
+offset_right = 400.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_vo021")
+
+[node name="ItemContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="QuizName" type="Label" parent="Panel/ScrollContainer/ItemContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cm50b")
+theme_override_font_sizes/font_size = 90
+text = "Test Quiz"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuizID" type="Label" parent="Panel/ScrollContainer/ItemContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k6vmf")
+theme_override_font_sizes/font_size = 40
+text = "ID: 1231231231"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FillerSpace" type="Label" parent="Panel/ScrollContainer/ItemContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k6vmf")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Panel/ScrollContainer/ItemContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k6vmf")
+theme_override_font_sizes/font_size = 40
+text = "Already Answered:
+Score: 8/10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FillerSpace2" type="Label" parent="Panel/ScrollContainer/ItemContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k6vmf")
+theme_override_font_sizes/font_size = 60
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CheckAnswer" type="Button" parent="Panel/ScrollContainer/ItemContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cm50b")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = ExtResource("3_egwt5")
+theme_override_styles/disabled = ExtResource("11_wdkeb")
+theme_override_styles/hover = ExtResource("3_egwt5")
+theme_override_styles/pressed = ExtResource("3_egwt5")
+theme_override_styles/normal = ExtResource("2_8cdis")
+disabled = true
+text = "Check Answer"
+
+[node name="Close" type="Button" parent="Panel/ScrollContainer/ItemContainer"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_cm50b")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = ExtResource("5_6w0vo")
+theme_override_styles/hover = ExtResource("5_6w0vo")
+theme_override_styles/pressed = ExtResource("5_6w0vo")
+theme_override_styles/normal = ExtResource("4_4t1u1")
+text = "Close"
+
+[node name="CreatePanel" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(800, 1000)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -469.5
+offset_top = -1114.0
+offset_right = 469.5
+offset_bottom = 1114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("10_iu0y5")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CreatePanel"]
+custom_minimum_size = Vector2(800, 2080)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -4.0
+offset_right = 400.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_vo021")
+horizontal_scroll_mode = 0
+
+[node name="ItemContainer" type="VBoxContainer" parent="CreatePanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="QuizNameEdit" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cm50b")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = ExtResource("9_1epvn")
+text = "Test Quiz"
+placeholder_text = "Quiz Name"
+
+[node name="QuizID" type="Label" parent="CreatePanel/ScrollContainer/ItemContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 30
+text = "ID: will be generated automatically"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Item1" type="VBoxContainer" parent="CreatePanel/ScrollContainer/ItemContainer"]
+layout_mode = 2
+
+[node name="Question" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k6vmf")
+theme_override_font_sizes/font_size = 50
+text = "Sample Question 1"
+placeholder_text = "Question 1"
+
+[node name="Answer" type="OptionButton" parent="CreatePanel/ScrollContainer/ItemContainer/Item1"]
+layout_mode = 2
+theme = ExtResource("11_6gdrj")
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+selected = 0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "A"
+popup/item_1/text = "B"
+popup/item_1/id = 1
+popup/item_2/text = "C"
+popup/item_2/id = 2
+popup/item_3/text = "D"
+popup/item_3/id = 3
+
+[node name="Choice1" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice A"
+placeholder_text = "Choice A"
+
+[node name="Choice2" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice B"
+placeholder_text = "Choice B"
+
+[node name="Choice3" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice C"
+placeholder_text = "Choice C"
+
+[node name="Choice4" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice D"
+placeholder_text = "Choice D"
+
+[node name="Item2" type="VBoxContainer" parent="CreatePanel/ScrollContainer/ItemContainer"]
+layout_mode = 2
+
+[node name="Question" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k6vmf")
+theme_override_font_sizes/font_size = 50
+text = "Sample Question 2"
+placeholder_text = "Question 2"
+
+[node name="Answer" type="OptionButton" parent="CreatePanel/ScrollContainer/ItemContainer/Item2"]
+layout_mode = 2
+theme = ExtResource("11_6gdrj")
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+selected = 0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "A"
+popup/item_1/text = "B"
+popup/item_1/id = 1
+popup/item_2/text = "C"
+popup/item_2/id = 2
+popup/item_3/text = "D"
+popup/item_3/id = 3
+
+[node name="Choice1" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice A"
+placeholder_text = "Choice A"
+
+[node name="Choice2" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice B"
+placeholder_text = "Choice B"
+
+[node name="Choice3" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice C"
+placeholder_text = "Choice C"
+
+[node name="Choice4" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice D"
+placeholder_text = "Choice D"
+
+[node name="Item3" type="VBoxContainer" parent="CreatePanel/ScrollContainer/ItemContainer"]
+layout_mode = 2
+
+[node name="Question" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k6vmf")
+theme_override_font_sizes/font_size = 50
+text = "Sample Question 3"
+placeholder_text = "Question 3"
+
+[node name="Answer" type="OptionButton" parent="CreatePanel/ScrollContainer/ItemContainer/Item3"]
+layout_mode = 2
+theme = ExtResource("11_6gdrj")
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+selected = 0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "A"
+popup/item_1/text = "B"
+popup/item_1/id = 1
+popup/item_2/text = "C"
+popup/item_2/id = 2
+popup/item_3/text = "D"
+popup/item_3/id = 3
+
+[node name="Choice1" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice A"
+placeholder_text = "Choice A"
+
+[node name="Choice2" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice B"
+placeholder_text = "Choice B"
+
+[node name="Choice3" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice C"
+placeholder_text = "Choice C"
+
+[node name="Choice4" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice D"
+placeholder_text = "Choice D"
+
+[node name="Item4" type="VBoxContainer" parent="CreatePanel/ScrollContainer/ItemContainer"]
+layout_mode = 2
+
+[node name="Question" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k6vmf")
+theme_override_font_sizes/font_size = 50
+text = "Sample Question 4"
+placeholder_text = "Question 4"
+
+[node name="Answer" type="OptionButton" parent="CreatePanel/ScrollContainer/ItemContainer/Item4"]
+layout_mode = 2
+theme = ExtResource("11_6gdrj")
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+selected = 0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "A"
+popup/item_1/text = "B"
+popup/item_1/id = 1
+popup/item_2/text = "C"
+popup/item_2/id = 2
+popup/item_3/text = "D"
+popup/item_3/id = 3
+
+[node name="Choice1" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice A"
+placeholder_text = "Choice A"
+
+[node name="Choice2" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice B"
+placeholder_text = "Choice B"
+
+[node name="Choice3" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice C"
+placeholder_text = "Choice C"
+
+[node name="Choice4" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice D"
+placeholder_text = "Choice D"
+
+[node name="Item5" type="VBoxContainer" parent="CreatePanel/ScrollContainer/ItemContainer"]
+layout_mode = 2
+
+[node name="Question" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k6vmf")
+theme_override_font_sizes/font_size = 50
+text = "Sample Question 5"
+placeholder_text = "Question 5"
+
+[node name="Answer" type="OptionButton" parent="CreatePanel/ScrollContainer/ItemContainer/Item5"]
+layout_mode = 2
+theme = ExtResource("11_6gdrj")
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+selected = 0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "A"
+popup/item_1/text = "B"
+popup/item_1/id = 1
+popup/item_2/text = "C"
+popup/item_2/id = 2
+popup/item_3/text = "D"
+popup/item_3/id = 3
+
+[node name="Choice1" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice A"
+placeholder_text = "Choice A"
+
+[node name="Choice2" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice B"
+placeholder_text = "Choice B"
+
+[node name="Choice3" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice C"
+placeholder_text = "Choice C"
+
+[node name="Choice4" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice D"
+placeholder_text = "Choice D"
+
+[node name="Item6" type="VBoxContainer" parent="CreatePanel/ScrollContainer/ItemContainer"]
+layout_mode = 2
+
+[node name="Question" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k6vmf")
+theme_override_font_sizes/font_size = 50
+text = "Sample Question 6"
+placeholder_text = "Question 6"
+
+[node name="Answer" type="OptionButton" parent="CreatePanel/ScrollContainer/ItemContainer/Item6"]
+layout_mode = 2
+theme = ExtResource("11_6gdrj")
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+selected = 0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "A"
+popup/item_1/text = "B"
+popup/item_1/id = 1
+popup/item_2/text = "C"
+popup/item_2/id = 2
+popup/item_3/text = "D"
+popup/item_3/id = 3
+
+[node name="Choice1" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice A"
+placeholder_text = "Choice A"
+
+[node name="Choice2" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice B"
+placeholder_text = "Choice B"
+
+[node name="Choice3" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice C"
+placeholder_text = "Choice C"
+
+[node name="Choice4" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice D"
+placeholder_text = "Choice D"
+
+[node name="Item7" type="VBoxContainer" parent="CreatePanel/ScrollContainer/ItemContainer"]
+layout_mode = 2
+
+[node name="Question" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item7"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k6vmf")
+theme_override_font_sizes/font_size = 50
+text = "Sample Question 7"
+placeholder_text = "Question 7"
+
+[node name="Answer" type="OptionButton" parent="CreatePanel/ScrollContainer/ItemContainer/Item7"]
+layout_mode = 2
+theme = ExtResource("11_6gdrj")
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+selected = 0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "A"
+popup/item_1/text = "B"
+popup/item_1/id = 1
+popup/item_2/text = "C"
+popup/item_2/id = 2
+popup/item_3/text = "D"
+popup/item_3/id = 3
+
+[node name="Choice1" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item7"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice A"
+placeholder_text = "Choice A"
+
+[node name="Choice2" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item7"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice B"
+placeholder_text = "Choice B"
+
+[node name="Choice3" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item7"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice C"
+placeholder_text = "Choice C"
+
+[node name="Choice4" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item7"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice D"
+placeholder_text = "Choice D"
+
+[node name="Item8" type="VBoxContainer" parent="CreatePanel/ScrollContainer/ItemContainer"]
+layout_mode = 2
+
+[node name="Question" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item8"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k6vmf")
+theme_override_font_sizes/font_size = 50
+text = "Sample Question 8"
+placeholder_text = "Question 8"
+
+[node name="Answer" type="OptionButton" parent="CreatePanel/ScrollContainer/ItemContainer/Item8"]
+layout_mode = 2
+theme = ExtResource("11_6gdrj")
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+selected = 0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "A"
+popup/item_1/text = "B"
+popup/item_1/id = 1
+popup/item_2/text = "C"
+popup/item_2/id = 2
+popup/item_3/text = "D"
+popup/item_3/id = 3
+
+[node name="Choice1" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item8"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice A"
+placeholder_text = "Choice A"
+
+[node name="Choice2" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item8"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice B"
+placeholder_text = "Choice B"
+
+[node name="Choice3" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item8"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice C"
+placeholder_text = "Choice C"
+
+[node name="Choice4" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item8"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice D"
+placeholder_text = "Choice D"
+
+[node name="Item9" type="VBoxContainer" parent="CreatePanel/ScrollContainer/ItemContainer"]
+layout_mode = 2
+
+[node name="Question" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item9"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k6vmf")
+theme_override_font_sizes/font_size = 50
+text = "Sample Question 9"
+placeholder_text = "Question 9"
+
+[node name="Answer" type="OptionButton" parent="CreatePanel/ScrollContainer/ItemContainer/Item9"]
+layout_mode = 2
+theme = ExtResource("11_6gdrj")
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+selected = 0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "A"
+popup/item_1/text = "B"
+popup/item_1/id = 1
+popup/item_2/text = "C"
+popup/item_2/id = 2
+popup/item_3/text = "D"
+popup/item_3/id = 3
+
+[node name="Choice1" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item9"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice A"
+placeholder_text = "Choice A"
+
+[node name="Choice2" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item9"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice B"
+placeholder_text = "Choice B"
+
+[node name="Choice3" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item9"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice C"
+placeholder_text = "Choice C"
+
+[node name="Choice4" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item9"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice D"
+placeholder_text = "Choice D"
+
+[node name="Item10" type="VBoxContainer" parent="CreatePanel/ScrollContainer/ItemContainer"]
+layout_mode = 2
+
+[node name="Question" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item10"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k6vmf")
+theme_override_font_sizes/font_size = 50
+text = "Sample Question 10"
+placeholder_text = "Question 10"
+
+[node name="Answer" type="OptionButton" parent="CreatePanel/ScrollContainer/ItemContainer/Item10"]
+layout_mode = 2
+theme = ExtResource("11_6gdrj")
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+selected = 0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "A"
+popup/item_1/text = "B"
+popup/item_1/id = 1
+popup/item_2/text = "C"
+popup/item_2/id = 2
+popup/item_3/text = "D"
+popup/item_3/id = 3
+
+[node name="Choice1" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item10"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice A"
+placeholder_text = "Choice A"
+
+[node name="Choice2" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item10"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice B"
+placeholder_text = "Choice B"
+
+[node name="Choice3" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item10"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice C"
+placeholder_text = "Choice C"
+
+[node name="Choice4" type="LineEdit" parent="CreatePanel/ScrollContainer/ItemContainer/Item10"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_3oxnl")
+theme_override_font_sizes/font_size = 40
+text = "Choice D"
+placeholder_text = "Choice D"
+
+[node name="SaveQuiz" type="Button" parent="CreatePanel/ScrollContainer/ItemContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cm50b")
+theme_override_font_sizes/font_size = 35
+text = "Publish Quiz"
+
+[node name="CloseEdit" type="Button" parent="CreatePanel/ScrollContainer/ItemContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cm50b")
+theme_override_font_sizes/font_size = 35
+text = "Close"
+
+[node name="VersionControl" type="Label" parent="."]
+layout_mode = 2
+offset_top = 2278.0
+offset_right = 1080.0
+offset_bottom = 2375.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_k6vmf")
+theme_override_font_sizes/font_size = 35
+text = "v. 0.0.2
+YUME INTERACTIVE 2024 c. All Rights Reserved"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[connection signal="pressed" from="Main/VBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Logout" to="." method="_on_logout_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/ItemContainer/CheckAnswer" to="." method="_on_check_answer_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/ItemContainer/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="CreatePanel/ScrollContainer/ItemContainer/SaveQuiz" to="." method="_on_save_quiz_pressed"]
+[connection signal="pressed" from="CreatePanel/ScrollContainer/ItemContainer/CloseEdit" to="." method="_on_close_edit_pressed"]

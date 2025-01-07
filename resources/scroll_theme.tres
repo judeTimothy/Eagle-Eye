@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bj8uhoow67kql"]
+
+[ext_resource type="StyleBox" uid="uid://cdt3rwb2t6hhw" path="res://resources/grabber_mobile_base.tres" id="1_jp3ww"]
+[ext_resource type="StyleBox" uid="uid://mv5tedauopmp" path="res://resources/grabber_mobile_select.tres" id="2_pjv3f"]
+
+[resource]
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/decrement_pressed = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/icons/increment_pressed = null
+VScrollBar/styles/grabber = ExtResource("1_jp3ww")
+VScrollBar/styles/grabber_highlight = ExtResource("2_pjv3f")
+VScrollBar/styles/grabber_pressed = ExtResource("2_pjv3f")
+VScrollBar/styles/scroll = null
+VScrollBar/styles/scroll_focus = null

@@ -1,0 +1,62 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dv32bw6xd3vpa"]
+
+[ext_resource type="StyleBox" uid="uid://bh6d7yvuu6vyf" path="res://resources/dropdown_theme.tres" id="1_n3gu6"]
+
+[resource]
+OptionButton/colors/font_color = Color(1, 1, 1, 1)
+OptionButton/colors/font_disabled_color = Color(1, 1, 1, 1)
+OptionButton/colors/font_focus_color = Color(1, 1, 1, 1)
+OptionButton/colors/font_hover_color = Color(1, 1, 1, 1)
+OptionButton/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+OptionButton/colors/font_outline_color = Color(1, 1, 1, 1)
+OptionButton/colors/font_pressed_color = Color(1, 1, 1, 1)
+OptionButton/constants/arrow_margin = 0
+OptionButton/constants/h_separation = 0
+OptionButton/constants/modulate_arrow = 0
+OptionButton/constants/outline_size = 0
+OptionButton/font_sizes/font_size = 16
+OptionButton/fonts/font = null
+OptionButton/icons/arrow = null
+OptionButton/styles/disabled = null
+OptionButton/styles/disabled_mirrored = null
+OptionButton/styles/focus = null
+OptionButton/styles/hover = null
+OptionButton/styles/hover_mirrored = null
+OptionButton/styles/normal = null
+OptionButton/styles/normal_mirrored = null
+OptionButton/styles/pressed = null
+OptionButton/styles/pressed_mirrored = null
+PopupMenu/colors/font_accelerator_color = Color(1, 1, 1, 1)
+PopupMenu/colors/font_color = Color(1, 1, 1, 1)
+PopupMenu/colors/font_disabled_color = Color(1, 1, 1, 1)
+PopupMenu/colors/font_hover_color = Color(1, 1, 1, 1)
+PopupMenu/colors/font_outline_color = Color(1, 1, 1, 1)
+PopupMenu/colors/font_separator_color = Color(1, 1, 1, 1)
+PopupMenu/colors/font_separator_outline_color = Color(1, 1, 1, 1)
+PopupMenu/constants/h_separation = 0
+PopupMenu/constants/icon_max_width = 0
+PopupMenu/constants/indent = 0
+PopupMenu/constants/item_end_padding = 0
+PopupMenu/constants/item_start_padding = 0
+PopupMenu/constants/outline_size = 0
+PopupMenu/constants/separator_outline_size = 0
+PopupMenu/constants/v_separation = 0
+PopupMenu/font_sizes/font_separator_size = 16
+PopupMenu/font_sizes/font_size = 35
+PopupMenu/fonts/font = null
+PopupMenu/fonts/font_separator = null
+PopupMenu/icons/checked = null
+PopupMenu/icons/checked_disabled = null
+PopupMenu/icons/radio_checked = null
+PopupMenu/icons/radio_checked_disabled = null
+PopupMenu/icons/radio_unchecked = null
+PopupMenu/icons/radio_unchecked_disabled = null
+PopupMenu/icons/submenu = null
+PopupMenu/icons/submenu_mirrored = null
+PopupMenu/icons/unchecked = null
+PopupMenu/icons/unchecked_disabled = null
+PopupMenu/styles/hover = null
+PopupMenu/styles/labeled_separator_left = null
+PopupMenu/styles/labeled_separator_right = null
+PopupMenu/styles/panel = ExtResource("1_n3gu6")
+PopupMenu/styles/separator = null

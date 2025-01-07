@@ -1,0 +1,9 @@
+[gd_resource type="StyleBoxFlat" format=3 uid="uid://mv5tedauopmp"]
+
+[resource]
+bg_color = Color(0.921569, 0.454902, 0.0666667, 1)
+corner_detail = 10
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0

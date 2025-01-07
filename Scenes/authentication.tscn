@@ -1,0 +1,162 @@
+[gd_scene load_steps=12 format=3 uid="uid://id3peeyq2iie"]
+
+[ext_resource type="Script" path="res://Scripts/authentication.gd" id="1_br5kk"]
+[ext_resource type="FontFile" uid="uid://c1tect0yp2ipg" path="res://fonts/FUTURA75BOLD.TTF" id="2_2a2s1"]
+[ext_resource type="Texture2D" uid="uid://bd8r31erisks8" path="res://assets/menu-bg.png" id="2_4gbx4"]
+[ext_resource type="FontFile" uid="uid://dfgquxtt5xcmd" path="res://fonts/FUTURA65MEDIUM.TTF" id="2_8uuhp"]
+[ext_resource type="Texture2D" uid="uid://pdwfyfp25rqd" path="res://assets/logo_temp.png" id="3_4qvpe"]
+[ext_resource type="StyleBox" uid="uid://ba13citpktib0" path="res://resources/line_edit_theme.tres" id="3_amwak"]
+[ext_resource type="StyleBox" uid="uid://drwp4j22qjxtx" path="res://resources/login_theme.tres" id="4_jex8w"]
+[ext_resource type="StyleBox" uid="uid://ox201meuqwrt" path="res://resources/sign_up_theme.tres" id="5_8vih5"]
+[ext_resource type="StyleBox" uid="uid://68wlqla17k3u" path="res://resources/show_button_theme.tres" id="5_fjgct"]
+[ext_resource type="StyleBox" uid="uid://dumnekd7wwi8g" path="res://resources/login_select_theme.tres" id="8_s7afl"]
+[ext_resource type="StyleBox" uid="uid://cvffqibd7sh0f" path="res://resources/sign_up_select_theme.tres" id="10_eeuuo"]
+
+[node name="Authentication" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_br5kk")
+
+[node name="MenuBG" type="Sprite2D" parent="."]
+position = Vector2(540, 1200)
+texture = ExtResource("2_4gbx4")
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(540, 506)
+scale = Vector2(2, 2)
+texture = ExtResource("3_4qvpe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -490.0
+offset_top = -68.0
+offset_right = 490.0
+offset_bottom = 912.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="StateLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.262745, 0.152941, 0.14902, 1)
+theme_override_fonts/font = ExtResource("2_8uuhp")
+theme_override_font_sizes/font_size = 45
+text = "Not logged in"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Email" type="LineEdit" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_placeholder_color = Color(0.752941, 0.580392, 0.486275, 1)
+theme_override_colors/font_selected_color = Color(0.752941, 0.580392, 0.486275, 1)
+theme_override_colors/font_color = Color(0.752941, 0.580392, 0.486275, 1)
+theme_override_fonts/font = ExtResource("2_8uuhp")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = ExtResource("3_amwak")
+placeholder_text = "Email"
+clear_button_enabled = true
+
+[node name="Password" type="LineEdit" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_placeholder_color = Color(0.752941, 0.580392, 0.486275, 1)
+theme_override_colors/font_selected_color = Color(0.752941, 0.580392, 0.486275, 1)
+theme_override_colors/font_color = Color(0.752941, 0.580392, 0.486275, 1)
+theme_override_fonts/font = ExtResource("2_8uuhp")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = ExtResource("3_amwak")
+placeholder_text = "Password"
+clear_button_enabled = true
+secret = true
+
+[node name="Button" type="Button" parent="VBoxContainer/Password"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 877.0
+offset_top = 15.0
+offset_right = 970.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("2_8uuhp")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = ExtResource("5_fjgct")
+theme_override_styles/hover = ExtResource("5_fjgct")
+theme_override_styles/pressed = ExtResource("5_fjgct")
+theme_override_styles/normal = ExtResource("5_fjgct")
+text = "SHOW"
+
+[node name="Login" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2a2s1")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = ExtResource("8_s7afl")
+theme_override_styles/hover = ExtResource("8_s7afl")
+theme_override_styles/pressed = ExtResource("8_s7afl")
+theme_override_styles/normal = ExtResource("4_jex8w")
+text = "Login"
+
+[node name="Register" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_2a2s1")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = ExtResource("10_eeuuo")
+theme_override_styles/hover = ExtResource("10_eeuuo")
+theme_override_styles/pressed = ExtResource("10_eeuuo")
+theme_override_styles/normal = ExtResource("5_8vih5")
+text = "Signup"
+
+[node name="CheckBox" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_8uuhp")
+theme_override_font_sizes/font_size = 50
+text = "SAVE LOGIN?"
+flat = true
+
+[node name="VersionControl" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -442.0
+offset_top = -150.0
+offset_right = 442.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_8uuhp")
+theme_override_font_sizes/font_size = 35
+text = "v. 0.0.2
+YUME INTERACTIVE 2024 c. All Rights Reserved"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ToastTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+
+[connection signal="pressed" from="VBoxContainer/Password/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Login" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="VBoxContainer/Register" to="." method="_on_register_pressed"]
+[connection signal="pressed" from="VBoxContainer/CheckBox" to="." method="_on_check_box_pressed"]
+[connection signal="timeout" from="ToastTimer" to="." method="_on_toast_timer_timeout"]
