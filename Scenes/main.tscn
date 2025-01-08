@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dew84hfxj7vqs"]
+[gd_scene load_steps=20 format=3 uid="uid://dew84hfxj7vqs"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_8plq1"]
 [ext_resource type="StyleBox" uid="uid://drwp4j22qjxtx" path="res://resources/login_theme.tres" id="2_8cdis"]
@@ -6,8 +6,8 @@
 [ext_resource type="FontFile" uid="uid://c1tect0yp2ipg" path="res://fonts/FUTURA75BOLD.TTF" id="2_cm50b"]
 [ext_resource type="FontFile" uid="uid://dfgquxtt5xcmd" path="res://fonts/FUTURA65MEDIUM.TTF" id="2_k6vmf"]
 [ext_resource type="Texture2D" uid="uid://pdwfyfp25rqd" path="res://assets/logo_temp.png" id="3_2ve28"]
-[ext_resource type="Texture2D" uid="uid://d3mgin84fgitm" path="res://assets/grabber.png" id="3_4q6mp"]
 [ext_resource type="StyleBox" uid="uid://dumnekd7wwi8g" path="res://resources/login_select_theme.tres" id="3_egwt5"]
+[ext_resource type="StyleBox" uid="uid://c5lpbcfutx7a3" path="res://Templates/grabber.tres" id="3_eo0fn"]
 [ext_resource type="StyleBox" uid="uid://cxflbk41reth6" path="res://Templates/grabber_highlight.tres" id="3_s7kgh"]
 [ext_resource type="StyleBox" uid="uid://ox201meuqwrt" path="res://resources/sign_up_theme.tres" id="4_4t1u1"]
 [ext_resource type="StyleBox" uid="uid://cvffqibd7sh0f" path="res://resources/sign_up_select_theme.tres" id="5_6w0vo"]
@@ -19,15 +19,8 @@
 [ext_resource type="StyleBox" uid="uid://bejl74gxkq6fo" path="res://resources/disabled_main.tres" id="11_wdkeb"]
 [ext_resource type="Theme" uid="uid://bj8uhoow67kql" path="res://resources/scroll_theme.tres" id="12_vo021"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ds13"]
-texture = ExtResource("3_4q6mp")
-expand_margin_left = 10.0
-expand_margin_right = 10.0
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-
 [sub_resource type="Theme" id="Theme_qeisr"]
-VScrollBar/styles/grabber = SubResource("StyleBoxTexture_1ds13")
+VScrollBar/styles/grabber = ExtResource("3_eo0fn")
 VScrollBar/styles/grabber_highlight = ExtResource("3_s7kgh")
 VScrollBar/styles/grabber_pressed = ExtResource("5_yvs5h")
 

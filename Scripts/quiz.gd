@@ -19,5 +19,5 @@ func _process(delta):
 
 
 func _on_pressed():
-	get_parent().get_parent().get_parent().selected_id = id
-	get_parent().get_parent().get_parent().populate_panel(quiz_name)
+	get_parent().get_parent().get_parent().get_parent().selected_id = id
+	get_parent().get_parent().get_parent().get_parent().populate_panel(quiz_name)
